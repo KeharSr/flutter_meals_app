@@ -41,6 +41,7 @@ class CategoriesScreen extends StatelessWidget {
                 _selectedCategory(context, list);
               },
             );
+            
           }),
         ],
       ),
