@@ -40,4 +40,6 @@ class MealModel {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
+
+ 
 }
