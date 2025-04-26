@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_app/data/category_data.dart';
 import 'package:meals_app/screens/categories_screen.dart';
+import 'package:meals_app/screens/filter_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
 import 'package:meals_app/screens/tabs_screen.dart';
 

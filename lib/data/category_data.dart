@@ -2,68 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/model/category_model.dart';
 import 'package:meals_app/model/meals_model.dart';
 
-const List<CategoryModel>  availableCategories = <CategoryModel>[
-  CategoryModel(
-    id: 'c1',
-    title: 'Italian',
-    color: Colors.purple,
-  ),
-  CategoryModel(
-    id: 'c2',
-    title: 'Quick & Easy',
-    color: Colors.red,
-  ),
-  CategoryModel(
-    id: 'c3',
-    title: 'Hamburgers',
-    color: Colors.orange,
-  ),
-  CategoryModel(
-    id: 'c4',
-    title: 'German',
-    color: Colors.amber,
-  ),
-  CategoryModel(
-    id: 'c5',
-    title: 'Light & Lovely',
-    color: Colors.blue,
-  ),
-  CategoryModel(
-    id: 'c6',
-    title: 'Exotic',
-    color: Colors.green,
-  ),
-  CategoryModel(
-    id: 'c7',
-    title: 'Breakfast',
-    color: Colors.lightBlue,
-  ),
-  CategoryModel(
-    id: 'c8',
-    title: 'Asian',
-    color: Colors.lightGreen,
-  ),
-  CategoryModel(
-    id: 'c9',
-    title: 'French',
-    color: Colors.pink,
-  ),
-  CategoryModel(
-    id: 'c10',
-    title: 'Summer',
-    color: Colors.teal,
-  ),
+const List<CategoryModel> availableCategories = <CategoryModel>[
+  CategoryModel(id: 'c1', title: 'Italian', color: Colors.purple),
+  CategoryModel(id: 'c2', title: 'Quick & Easy', color: Colors.red),
+  CategoryModel(id: 'c3', title: 'Hamburgers', color: Colors.orange),
+  CategoryModel(id: 'c4', title: 'German', color: Colors.amber),
+  CategoryModel(id: 'c5', title: 'Light & Lovely', color: Colors.blue),
+  CategoryModel(id: 'c6', title: 'Exotic', color: Colors.green),
+  CategoryModel(id: 'c7', title: 'Breakfast', color: Colors.lightBlue),
+  CategoryModel(id: 'c8', title: 'Asian', color: Colors.lightGreen),
+  CategoryModel(id: 'c9', title: 'French', color: Colors.pink),
+  CategoryModel(id: 'c10', title: 'Summer', color: Colors.teal),
 ];
 
-
-
-const  dummyMeals = [
+const List<MealModel> dummyMeals = <MealModel>[
   MealModel(
     id: 'm1',
-    categories: <String>[
-      'c1',
-      'c2',
-    ],
+    categories: <String>['c1', 'c2'],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -76,7 +31,7 @@ const  dummyMeals = [
       '1 Onion',
       '250g Spaghetti',
       'Spices',
-      'Cheese (optional)'
+      'Cheese (optional)',
     ],
     steps: <String>[
       'Cut the tomatoes and the onion into small pieces.',
@@ -85,7 +40,7 @@ const  dummyMeals = [
       'In the meantime, heaten up some olive oil and add the cut onion.',
       'After 2 minutes, add the tomato pieces, salt, pepper and your other spices.',
       'The sauce will be done once the spaghetti are.',
-      'Feel free to add some cheese on top of the finished dish.'
+      'Feel free to add some cheese on top of the finished dish.',
     ],
     isGlutenFree: false,
     isVegan: true,
@@ -94,9 +49,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm2',
-    categories: <String>[
-      'c2',
-    ],
+    categories: <String>['c2'],
     title: 'Toast Hawaii',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -108,12 +61,12 @@ const  dummyMeals = [
       '1 Slice Ham',
       '1 Slice Pineapple',
       '1-2 Slices of Cheese',
-      'Butter'
+      'Butter',
     ],
     steps: <String>[
       'Butter one side of the white bread',
       'Layer ham, the pineapple and cheese on the white bread',
-      'Bake the toast for round about 10 minutes in the oven at 200°C'
+      'Bake the toast for round about 10 minutes in the oven at 200°C',
     ],
     isGlutenFree: false,
     isVegan: false,
@@ -122,10 +75,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm3',
-    categories: <String>[
-      'c2',
-      'c3',
-    ],
+    categories: <String>['c2', 'c3'],
     title: 'Classic Hamburger',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
@@ -138,14 +88,14 @@ const  dummyMeals = [
       '1 Cucumber',
       '1 Onion',
       'Ketchup',
-      '2 Burger Buns'
+      '2 Burger Buns',
     ],
     steps: <String>[
       'Form 2 patties',
       'Fry the patties for c. 4 minutes on each side',
       'Quickly fry the buns for c. 1 minute on each side',
       'Bruch buns with ketchup',
-      'Serve burger with tomato, cucumber and onion'
+      'Serve burger with tomato, cucumber and onion',
     ],
     isGlutenFree: false,
     isVegan: false,
@@ -154,9 +104,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm4',
-    categories: <String>[
-      'c4',
-    ],
+    categories: <String>['c4'],
     title: 'Wiener Schnitzel',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
@@ -171,7 +119,7 @@ const  dummyMeals = [
       '300ml Butter',
       '100g Vegetable Oil',
       'Salt',
-      'Lemon Slices'
+      'Lemon Slices',
     ],
     steps: <String>[
       'Tenderize the veal to about 2–4mm, and salt on both sides.',
@@ -180,7 +128,7 @@ const  dummyMeals = [
       'Heat the butter and oil in a large pan (allow the fat to get very hot) and fry the schnitzels until golden brown on both sides.',
       'Make sure to toss the pan regularly so that the schnitzels are surrounded by oil and the crumbing becomes ‘fluffy’.',
       'Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.',
-      'Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.'
+      'Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.',
     ],
     isGlutenFree: false,
     isVegan: false,
@@ -209,14 +157,14 @@ const  dummyMeals = [
       'Mustard',
       'Balsamic Vinegar',
       'Olive Oil',
-      'Salt and Pepper'
+      'Salt and Pepper',
     ],
     steps: <String>[
       'Wash and cut salad and herbs',
       'Dice the salmon',
       'Process mustard, vinegar and olive oil into a dessing',
       'Prepare the salad',
-      'Add salmon cubes and dressing'
+      'Add salmon cubes and dressing',
     ],
     isGlutenFree: true,
     isVegan: false,
@@ -225,10 +173,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm6',
-    categories: <String>[
-      'c6',
-      'c10',
-    ],
+    categories: <String>['c6', 'c10'],
     title: 'Delicious Orange Mousse',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
@@ -261,9 +206,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm7',
-    categories: <String>[
-      'c7',
-    ],
+    categories: <String>['c7'],
     title: 'Pancakes',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -283,7 +226,7 @@ const  dummyMeals = [
       'In a large bowl, sift together the flour, baking powder, salt and sugar.',
       'Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.',
       'Heat a lightly oiled griddle or frying pan over medium high heat.',
-      'Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.'
+      'Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.',
     ],
     isGlutenFree: true,
     isVegan: false,
@@ -292,9 +235,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm8',
-    categories: <String>[
-      'c8',
-    ],
+    categories: <String>['c8'],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
@@ -316,7 +257,7 @@ const  dummyMeals = [
       'Add spices and stir fry',
       'Add chicken breast + 250ml of water and cook everything for 10 minutes',
       'Add coconut milk',
-      'Serve with rice'
+      'Serve with rice',
     ],
     isGlutenFree: true,
     isVegan: false,
@@ -325,9 +266,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm9',
-    categories: <String>[
-      'c9',
-    ],
+    categories: <String>['c9'],
     title: 'Chocolate Souffle',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
@@ -374,11 +313,7 @@ const  dummyMeals = [
   ),
   MealModel(
     id: 'm10',
-    categories: <String>[
-      'c2',
-      'c5',
-      'c10',
-    ],
+    categories: <String>['c2', 'c5', 'c10'],
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
@@ -390,7 +325,7 @@ const  dummyMeals = [
       '30g Pine Nuts',
       '300g Cherry Tomatoes',
       'Salad',
-      'Salt, Pepper and Olive Oil'
+      'Salt, Pepper and Olive Oil',
     ],
     steps: <String>[
       'Wash, peel and cut the asparagus',
@@ -399,7 +334,7 @@ const  dummyMeals = [
       'Roast the pine nuts',
       'Halve the tomatoes',
       'Mix with asparagus, salad and dressing',
-      'Serve with Baguette'
+      'Serve with Baguette',
     ],
     isGlutenFree: true,
     isVegan: true,
