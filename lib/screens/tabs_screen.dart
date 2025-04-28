@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/data/category_data.dart';
 import 'package:meals_app/model/meals_model.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/filter_screen.dart';
 import 'package:meals_app/screens/meals_screen.dart';
 import 'package:meals_app/widgets/items_drawer.dart';
+
+Map<Filter, bool> kFilteredItems = <Filter, bool>{
+  Filter.glutenFree: false,
+  Filter.lactoseFree: false,
+  Filter.vegetarian: false,
+  Filter.vegan: false,
+};
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -14,6 +22,8 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int selectedIndex = 0;
+
+  Map<Filter, bool> _selectedFilters = kFilteredItems;
 
   void showInfoMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
@@ -47,17 +57,42 @@ class _TabsScreenState extends State<TabsScreen> {
         context,
         MaterialPageRoute(
           builder: (BuildContext context) {
-            return const FilterScreen();
+            return FilterScreen(selectedFilters: _selectedFilters);
           },
         ),
       );
-      print(result);
+      setState(() {
+        _selectedFilters = result ?? kFilteredItems;
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget initialScreen = CategoriesScreen(onAddFavorite: addOrRemoveMeals);
+    final List<MealModel> filteredItems =
+        dummyMeals.where((MealModel meal) {
+          if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
+            return false;
+          }
+
+          if (_selectedFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
+            return false;
+          }
+
+          if (_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
+            return false;
+          }
+
+          if (_selectedFilters[Filter.vegan]! && !meal.isVegan) {
+            return false;
+          }
+          return true;
+        }).toList();
+
+    Widget initialScreen = CategoriesScreen(
+      onAddFavorite: addOrRemoveMeals,
+      availableMeals: filteredItems,
+    );
     String activePageTitle = 'Categories';
 
     if (selectedIndex == 1) {
