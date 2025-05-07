@@ -5,10 +5,10 @@ import 'package:meals_app/widgets/text_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealsItem extends StatelessWidget {
-  const MealsItem({super.key, required this.meal, required this.onAddFavorite});
+  const MealsItem({super.key, required this.meal});
 
   final MealModel meal;
-  final void Function(MealModel meals) onAddFavorite;
+ 
 
   String get newAffordability =>
       meal.affordability.name[0].toUpperCase() +
@@ -23,7 +23,7 @@ class MealsItem extends StatelessWidget {
       MaterialPageRoute(
         builder:
             (BuildContext ctx) =>
-                MealsDetailScreen(meal: meal, onAddFavorite: onAddFavorite),
+                MealsDetailScreen(meal: meal),
       ),
     );
   }
