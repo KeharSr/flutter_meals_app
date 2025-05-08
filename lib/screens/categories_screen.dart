@@ -22,11 +22,13 @@ class _CategoriesScreenState extends State<CategoriesScreen>
   void initState() {
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 200),
       lowerBound: 0,
       upperBound: 1,
     );
     super.initState();
+
+    animationController.forward();
   }
 
   @override
@@ -55,21 +57,33 @@ class _CategoriesScreenState extends State<CategoriesScreen>
     return AnimatedBuilder(
       animation: animationController,
       builder: (BuildContext context, Widget? child) {
-        return GridView(
-          padding: const EdgeInsets.all(10),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+        return SlideTransition(
+          position: Tween(
+            begin: const Offset(0, 0.3),
+            end: Offset(0, 0),
+          ).animate(
+            CurvedAnimation(
+              parent: animationController,
+              curve: Curves.easeInOut,
+            ),
           ),
-          children: <Widget>[
-            ...availableCategories.map((CategoryModel list) {
-              return CategoriesBox(
-                category: list,
-                onSelectedCategory: () {
-                  _selectedCategory(context, list);
-                },
-              );
-            }),
-          ],
+
+          child: GridView(
+            padding: const EdgeInsets.all(10),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            children: <Widget>[
+              ...availableCategories.map((CategoryModel list) {
+                return CategoriesBox(
+                  category: list,
+                  onSelectedCategory: () {
+                    _selectedCategory(context, list);
+                  },
+                );
+              }),
+            ],
+          ),
         );
       },
     );
