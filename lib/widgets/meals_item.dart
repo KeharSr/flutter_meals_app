@@ -8,7 +8,6 @@ class MealsItem extends StatelessWidget {
   const MealsItem({super.key, required this.meal});
 
   final MealModel meal;
- 
 
   String get newAffordability =>
       meal.affordability.name[0].toUpperCase() +
@@ -21,9 +20,7 @@ class MealsItem extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder:
-            (BuildContext ctx) =>
-                MealsDetailScreen(meal: meal),
+        builder: (BuildContext ctx) => MealsDetailScreen(meal: meal),
       ),
     );
   }
@@ -41,12 +38,15 @@ class MealsItem extends StatelessWidget {
         },
         child: Stack(
           children: <Widget>[
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
+            Hero(
+              tag: meal.imageUrl,
+              child: FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
+              ),
             ),
             Positioned(
               left: 0,
